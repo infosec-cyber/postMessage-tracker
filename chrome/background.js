@@ -38,6 +38,21 @@ function logListener(data) {
 chrome.runtime.onMessage.addListener(function(msg, sender, sendResponse) {
 	console.log('message from cs', msg);
 	tabId = sender.tab.id;
+	// if (msg.stack) {
+	// 	chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+	// 		let selectedId = tabs[0].id;
+	// 		chrome.debugger.sendCommand({
+	// 				"tabId": selectedId},
+	// 			"Debugger.setBreakpoint",
+	// 			{
+	// 				"location": {"lineNumber": 12},
+	// 			},
+	// 			function(response) {
+	// 				chrome.extension.getBackgroundPage().console.log(JSON.stringify(response));
+	// 			});
+	//
+	// 	});
+	// }
 	if(msg.listener) {
 		if(msg.listener == 'function () { [native code] }') return;
 		msg.parent_url = sender.tab.url;

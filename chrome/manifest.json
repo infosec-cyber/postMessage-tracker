@@ -29,6 +29,7 @@
   },
   "permissions": [
     "tabs",
+    "debugger",
     "storage",
     "http:\/\/*\/",
     "https:\/\/*\/"
